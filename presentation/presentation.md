@@ -105,6 +105,8 @@ it
 
 ## Demo
 
+`git clone git@github.com:auser/rigdata.git`
+
 !
 
 ## Architecture
