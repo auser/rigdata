@@ -26,7 +26,9 @@ class App < Sinatra::Base
         on.pmessage do |pattern, evt, msg|
           out << "data: {"
           out << "\"eventName\": \"#{evt.split(".")[-1]}\", "
+          out << "\"words\": {"
           out << JSON.parse(msg).map {|k,v| "\"#{k}\":\"#{v}\"" }.join(", ")
+          out << "}"
           out << "}\n\n"
         end
         on.punsubscribe do |evt,total|

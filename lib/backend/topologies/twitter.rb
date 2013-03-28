@@ -5,8 +5,13 @@ module RigData
   class TwitterTopology < RedStorm::SimpleTopology
 
     ## Create a spout from twitter
+    ## This is where all the data comes from
     spout RigData::TwitterSpout
 
+    ## First path
+    #
+    ## We are counting every tweet we come across
+    # and passing it on
     bolt RigData::CountTweetBolt do
       source RigData::TwitterSpout, :shuffle
     end

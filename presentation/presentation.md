@@ -21,9 +21,6 @@ that we all appreciate, _presumably why we are all here_
 
 ## Big Data
 
-!
-
-<small>This one is not as easy</small>
 
 !
 
@@ -31,13 +28,14 @@ that we all appreciate, _presumably why we are all here_
 
 !
 
-* Buzzword
+<em>Buzzword</em>
 
 !
 
 The amount of data that is flowing through the `pipes` of the internet is
 enormous. Spend a lot of time gathering data, storing it, retrieving it...
-databases, etc.
+databases, etc. We are so innundated and intertwined with technology, that the
+amount of data generated often goes untapped.
 
 !
 
@@ -45,16 +43,6 @@ databases, etc.
 
 `Big data` is about creating experiences that allow us to make sense of all of
 it
-
-!
-
-## Making sense of it
-
-* Aggregates
-* Counts
-* Comparisons
-* Relational
-* Relevance
 
 !
 
@@ -73,19 +61,7 @@ it
 
 * Recommendations
 * Predictions
-* Filtering
 * Save the planet
-
-!
-
-## Business case
-
-!
-
-* Create `sticky` experiences for customers through recommendations
-* Create systems to provide high-level view of your infrastructure
-* Generate data-driven business models
-* ...
 
 !
 
@@ -94,22 +70,23 @@ it
 * Map-Reduce, batched
 * Realtime, streaming
 
+![puppy](http://placepuppy.it/200/300)
+
 !
 
 ### Enough of the pie-in-the-sky
-
-
-
 
 !
 
 ## Demo
 
-`git clone git@github.com:auser/rigdata.git`
+`git clone git://github.com/auser/rigdata.git`
 
 !
 
 ## Architecture
+
+`git clone git://github.com/auser/rigdata.git`
 
 * [Jruby](http://jruby.org/)
 * [Storm](http://storm-project.net/)

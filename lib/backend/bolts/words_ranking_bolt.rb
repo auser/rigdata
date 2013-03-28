@@ -19,7 +19,7 @@ module RigData
         @ranks.delete(sorted.pop[0])
       end
 
-      json = @ranks.to_json
+      json = sorted.to_json
       key = "rigdata.word_rankings"
       @redis.publish key, json
       {"words" => [json]}.to_json

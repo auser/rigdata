@@ -8,7 +8,7 @@ module RigData
       @redis = Redis.new(RigData.config('redis'))
       @topic = @redis.get('rigdata.topic') || 'SF'
       @uninteresting_words = %w(
-        in I RT the you when are was from they like get have this and for the time
+        in I RT the you when are was from they like get have this and for the time ...
       )
     end
 
