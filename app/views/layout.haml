@@ -1,0 +1,33 @@
+!!! 5
+%html
+  %head
+    %title= "RigData"
+    %meta{ :content => "", :name => "description" }
+    %meta{ :content => "auser", :name => "author" }
+    %meta{ :content => "1 days", :name => "revisit-after" }
+    %link{ :href => "/feed", :rel => "alternate", :title => "Atom", :type => "application/atom+xml" }
+    = css :application, :media => 'screen'
+
+  %body
+    %header
+      %nav.top-bar
+        %ul.title-area
+          %li.name
+            %h1
+              %a{href: "/"} RigData
+        %section.top-bar-section
+          %ul.right
+            %li
+              %a{href: "http://github.com/auser/rigdata"} Github
+
+
+    %section
+      #content
+        = yield
+
+
+      %footer
+        %p
+          Copyright 2013 Ari Lerner
+
+    = js :application
