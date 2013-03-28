@@ -48,13 +48,6 @@ it
 
 !
 
-### Big Data implementation
-
-* Map-Reduce, batched
-* Realtime, streaming
-
-!
-
 ## Making sense of it
 
 * Aggregates
@@ -96,7 +89,17 @@ it
 
 !
 
+### Big Data implementation
+
+* Map-Reduce, batched
+* Realtime, streaming
+
+!
+
 ### Enough of the pie-in-the-sky
+
+
+
 
 !
 
@@ -109,7 +112,6 @@ it
 * [Jruby](http://jruby.org/)
 * [Storm](http://storm-project.net/)
 * [Redis](http://redis.io/)
-* [jQuery](http://jQuery.com/)
 
 !
 
@@ -134,12 +136,6 @@ data)
 
 !
 
-### jQuery
-
-A client-side javascript library written by [Google](http://google.com).
-
-!
-
 ### Demo?
 
 !
@@ -159,7 +155,7 @@ and processing large-scale datasets, it continuously processes them.
 
 ## Primitives
 
-* `Streams` emit data (can be any number of data sources, like twitter firehose, kestrel queue, redis, etc).
+* `Spouts` emit data (can be any number of data sources, like twitter firehose, kestrel queue, redis, etc).
 * `Bolts` process data and pass the data on
 
 !
@@ -184,16 +180,16 @@ front-end subscribes to the redis queue and reacts when the queue changes.
 
 !
 
-## Screenshots
-
-!
-
-![Backend](images/terminal.png)
-
-!
-
-![Frontend](images/frontend.png)
-
-!
-
 ## Keyboard time
+
+!
+
+## Questions?
+
+!
+
+## The extra
+
+All code is available at:
+
+[github.com/auser/rigdata](https://github.com/auser/rigdata)
