@@ -1,3 +1,5 @@
+require 'redis'
+
 class App < Sinatra::Base
 
   helpers do

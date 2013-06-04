@@ -1,6 +1,6 @@
 ### Ruby and Big Data
 
-<div id="author">Ari Lerner, <a href="http://fullstack.io">fullstack.io</a></div>
+<div id="author">Ari Lerner, <a href="http://fullstack.io">fullstack.io</a> <a href="http://twitter.com/auser">@auser</a></div>
 
 !
 
@@ -172,3 +172,7 @@ front-end subscribes to the redis queue and reacts when the queue changes.
 All code is available at:
 
 [github.com/auser/rigdata](https://github.com/auser/rigdata)
+
+## Thanks
+
+<a href="http://twitter.com/auser">@auser</a>

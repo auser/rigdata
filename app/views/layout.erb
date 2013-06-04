@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="RigData" class="ng-scope">
+  <head>
+    <title>RigData</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="<%= stylesheet_path 'screen' %>">
+    <script src="<%= javascript_path 'vendor' %>"></script>
+  </head>
+  <body>
+    <%= erb :"shared/header" %>
+
+    <%= yield %>
+
+    <script src="<%= javascript_path 'application' %>"></script>
+  </body>
+</html>
+
+
+

@@ -14,16 +14,15 @@ end
 group :frontend do
   gem 'sinatra'
   gem 'redis'
-  gem 'haml'
-  gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
+  gem 'sinatra-asset-pipeline'
   gem 'sinatra-contrib'
   gem 'sass'
   gem 'puma'
   gem 'coffee-script'
+  gem 'zurb-foundation'
 end
 
 group :test do
   gem 'rake'
   gem 'rspec'
 end
-
