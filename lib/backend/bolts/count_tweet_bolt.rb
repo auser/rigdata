@@ -7,7 +7,6 @@ module RigData
     end
 
     on_receive do |tuple|
-      p [:count, tuple]
       timestamp = Time.now.strftime("%m-%d-%y.%M")
       key = "rigdata.#{timestamp}"
       count = @redis.incr key

@@ -3,9 +3,42 @@
 <!-- Editor -->
   <div class="large-6 columns">
     <h1>What</h1>
-    <p>This is a demo of how to use Storm with jRuby</p>
+    <p>This is a demo of how to use Storm with jRuby</p>. 
+    <p>
+      <h4>Requirements</h4>
+      <ul>
+        <li>Redis</li>
+        <li>Java</li>
+        <li>rvm/rbenv</li>
+      </ul>
+      
+      <h4>Install</h4>
+      <pre><code>
+        rvm install jruby
+        gem install bundler
+        bundle install
+      </code></pre>
+    </p>
+    <p>
+      <h4>Run the redis</h4>
+      <pre><code>
+        redis-server
+      </code></pre>
+      <h4>Run the web server</h4>
+      <pre><code>
+        bundle exec puma
+      </code></pre>
+      <h4>Run Storm</h4>
+      <pre><code>
+        ./bin/run_topology.sh lib/backend/topologies/twitter.rb
+      </code></pre>
+    </p>
   </div>
   <div class="large-6 columns">
     <h3>More information</h3>
+    <ul>
+      <li><a href="http://github.com/auser/rigdata">http://github.com/auser/rigdata</a></li>
+      <li><a href="http://clojure.org/">http://clojure.org</a></li>
+    </ul>
   </div>
 </div>

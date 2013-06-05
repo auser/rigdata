@@ -31,27 +31,41 @@ that we all appreciate, _presumably why we are all here_
 <em>Buzzword</em>
 
 !
+### Hadoop
+
+That's big data, right?
+
+!
+
+### Amazon EC2
+
+That's big data, right?
+
+!
+
+![puppy](http://placepuppy.it/200/300)
+
+!
 
 The amount of data that is flowing through the `pipes` of the internet is
 enormous. Spend a lot of time gathering data, storing it, retrieving it...
-databases, etc. We are so innundated and intertwined with technology, that the
+databases, etc. We are so inundated and intertwined with technology, that the
 amount of data generated often goes untapped.
 
 !
 
 ## My definition
 
-`Big data` is about creating experiences that allow us to make sense of all of
-it
+`Big data` (v) is the act of extracting meaning from large amounts of data
+that could not otherwise be found in small sample sets.
 
 !
 
-## Making sense of it
+## Value
 
-* When?
-* At what scale?
-* How much do we need?
-* Why even bother?
+* Time (trends, abnormalities)
+* How much (at what point will we have meaningful data)
+* How to react (Netflix, banks, etc.)
 
 !
 
@@ -61,24 +75,43 @@ it
 
 * Recommendations
 * Predictions
+* Trends
 * Save the planet
 
 !
 
-### Big Data implementation
+### Big Data implementations
 
 * Map-Reduce, batched
 * Realtime, streaming
 
-![puppy](http://placepuppy.it/200/300)
+!
 
-### Hadoop
+### Batched
 
-We've all heard of Hadoop. That's what big-data is. 
+Run computations on large amounts of data. `Map-Reduce`
+is the most popular examples of batched big data
+
+### Batched steps
+
+Steps:
+
+1) Collect data
+2) Do a bunch of things with that data
+3) Repeat
 
 !
 
-### Enough of the pie-in-the-sky
+### Streaming
+
+Run computations on small amounts of data at a time.
+
+
+Steps:
+
+1) Collect data
+2) Do a bunch of things with that data
+3) Repeat
 
 !
 
@@ -108,13 +141,14 @@ brains making it fast and providing many many libraries
 ### Storm
 
 A distributed realtime computation system written by Nathan Marz at Twitter
-written in [Clojure](http://clojure.org/) (I also really like clojure)
+written in [Clojure](http://clojure.org/) (I also really like clojure -- and 
+it plays really nice with us rubyist's desire for clean code)
 
 !
 
 ### Redis
 
-A lightning-fase advanced key-value store (with both in-memory and persistent
+A lightning fast advanced key-value store (with both in-memory and persistent
 data)
 
 !
@@ -146,12 +180,6 @@ and processing large-scale datasets, it continuously processes them.
 # Storm topology
 
 ![Topology](images/topology.png)
-
-!
-
-# Demo topology
-
-![DemoTopology](images/demo_topology.png)
 
 !
 

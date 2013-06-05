@@ -16,7 +16,6 @@ module RigData
     on_receive do |tuple|
       word, count = tuple['word'], tuple['count']
 
-      p [:keep, word]
       if word.length > 4 && !word.index(@topic) && !@uninteresting_words.include?(word) #&& word.scan(/(#)?([A-Za-z0-9]+)/)
         [word, count]
       end

@@ -58,17 +58,17 @@
               .enter().append('g')
                 .attr('class', 'node')
                   .attr('transform', (d) -> 'translate('+d.x+','+d.y+')')
-              
-        node.append('title')
-            .text (d) -> d.word
-              
+        
         node.append('circle')
             .attr('r', (d) -> d.r)
             .style("fill", (d) -> color(d.r))
             
+        node.append('title')
+            .text (d) -> d.word
+            
         node.append('text')
             .attr('text-anchor', 'middle')
-            .attr('dy', '.3em')
+            .attr('dy', '.35em')
             .text((d) -> d.word)
             .style("fill", (d) -> "black")
                   
