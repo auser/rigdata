@@ -29,4 +29,10 @@ class App < Sinatra::Base
   get '/' do
     erb :index
   end
+  
+  post '/search' do
+    # HACK
+    term = params.keys[0]
+    redis.publish('rigdata.topic', term)
+  end
 end

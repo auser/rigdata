@@ -33,9 +33,21 @@ module RigData
     bolt RigData::WordSumBolt do
       source RigData::WordKeepBolt, :fields => ["word"]
     end
+    
+    bolt RigData::HashtagBolt do
+      source RigData::WordKeepBolt, :fields => ["word"]
+    end
+    
+    bolt RigData::HashtagSumBolt do
+      source RigData::HashtagBolt, :fields => ["word"]
+    end
 
     bolt RigData::WordsRankingBolt do
       source RigData::WordSumBolt, :global
+    end
+    
+    bolt RigData::HashtagRankingBolt do
+      source RigData::HashtagSumBolt, :global
     end
 
     configure do |env|

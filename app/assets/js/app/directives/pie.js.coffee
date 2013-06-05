@@ -8,17 +8,17 @@
     
   link: (scope, element, attrs) ->
     margin =
-      top: 10
+      top: 0
       right: 10
-      bottom: 10
+      bottom: 20
       left: 10
     
     width = scope.width || 400
     height = scope.height || 300
-    
     width = width - margin.left - margin.right
     height = height - margin.top - margin.bottom
     
+    index = d3.range(attrs.range || 14)
     klass = attrs.class || ''
     
     # D3
@@ -30,55 +30,47 @@
         
     svg = d3.select(element[0])
           .append('svg')
-          .attr('viewBox', '0 0 ' + (width + margin.left + margin.right) + ' ' + (height + margin.top + margin.bottom))
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
           .append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
             
     scope.$watch 'data', (data) ->
-      duration = scope.duration || 10
-      delay = scope.delay || 10
+      index = d3.range(data.length)
+      
+      duration = scope.duration || 0
+      delay = scope.delay || 0
       
       if data
-        x.domain([0, d3.max(data, (d) -> d.rank) * 2])
-        y.domain(data.map (d) -> d.rank)
+        # console.log data, d3.max(data, (d) -> d.rank)
+        x.domain([0, d3.max(data, (d) -> d.rank)])
+        y.domain(d3.range(data.length))
         
-        bars = svg.selectAll('rect')
-                .data(data, (d) -> d.rank)
-                
+        index.sort (a, b) -> data[a].rank - data[b].rank
+        
+        bars = svg.selectAll('.bar')
+              .data(data)
         bars.enter()
-            .append('rect')
-              .attr('class', 'bar rect ' + klass)
-              .attr('cursor', 'pointer')
-              .attr('y', (d) -> y(d.rank))
-              .attr('height', y.rangeBand())
-              .attr('x', (d) -> 0)
-            .transition()
+            .append('g')
+              .attr('class', 'bar')
+              .attr("transform", (d, i) -> "translate(0," + y(i) + ")")
+        bars.append('rect')
+                .attr('cursor', 'pointer')
+                .attr('height', y.rangeBand())
+                .attr("width", (d) -> x(d.rank))
+        bars.append('text')
+                .attr('text-anchor', 'end')
+                .attr('x', (d, i) -> x(d.rank) - 6)
+                .attr('y', (d) -> y.rangeBand() / 2)
+                .attr('dy', '.35em')
+                .text((d) -> d.word + " (" + d.rank + ")")
+                
+        y.domain(index)
+        bars.transition()
               .duration(duration)
-              .attr('width', (d) -> x(d.rank))
-              .attr('x', (d) -> 0)
-                  
-        bars.on 'mousedown', (d) ->
-          scope.$apply ->
-            (scope.onClick || angular.noop)(d.word)
+              .delay((d, i) -> delay)
+              .attr('width', (d,i) -> x(d.rank))
+              .attr('transform', (d,i) -> 'translate(0,' + y(i) + ')')
         
         bars.exit().remove()
-        
-        labels = svg.selectAll("text")
-            .data(data, (d) -> d.word )
-            
-        labels.enter()
-              .append('text')
-                .attr('class', 'bar text' + klass)
-                .attr('cursor', 'pointer')
-                .attr('x', (d) -> x(d.rank) + 3)
-                .attr('y', (d) -> y(d.rank) + y.rangeBand())
-                .attr('dy', '.35em')
-                .attr('text-anchor', (d) -> 'start')
-                .text((d) -> d.word + "(" + d.rank + ")")
-                
-        labels.on 'mousedown', (d) ->
-          scope.$apply ->
-            (scope.onClick || angular.noop)(d.word)
-            
-        labels.exit().remove()
   ]

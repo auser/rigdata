@@ -1,18 +1,21 @@
 <!-- Nav -->
 <div class="row">
-<!-- Editor -->
+  <!-- Input -->
+  <form ng-submit="newTerm()">
+    <input type="text" placeholder="Search term" ng-model="search">
+  </form>
   <div class="large-6 columns">
-    <h1>Word rate</h1>
-    <!-- <ul> -->
-      <!-- <li ng-repeat="word in words">{{word}}</li> -->
-    <fs-bar data="words"></fs-bar>
-    
-    <!-- </ul> -->
+    <h1>Most popular words</h1>
+    <fs-bar delay='100' duration='1000' data="words" />
   </div>
   <div class="large-6 columns">
+    <h1>Popular hashtags</h1>
+    <fs-circle data="hashtags" />
+  </div>
+  <!-- <div class="large-6 columns">
     <h1>Word rankings</h1>
     <ul>
       <li ng-repeat="word in words">{{word}}</li>
     </ul>
-  </div>
+  </div> -->
 </div>

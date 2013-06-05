@@ -72,6 +72,10 @@ it
 
 ![puppy](http://placepuppy.it/200/300)
 
+### Hadoop
+
+We've all heard of Hadoop. That's what big-data is. 
+
 !
 
 ### Enough of the pie-in-the-sky

@@ -8,7 +8,7 @@ module RigData
 
     on_receive do |tuple|
       tweet = tuple['tweet']
-      tweet[:body].split(" ").map {|w| [w] }
+      tweet[:body].split(" ").map {|w| [w.downcase] }
     end
 
     on_close do

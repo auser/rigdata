@@ -19,17 +19,6 @@ app.factory "eventSourceService", ["$q", '$rootScope', "$location", ($q, $rootSc
   callback = (name, msg) ->
     cb(msg) for cb in subscribers[name] if subscribers[name]
 
-    # if name == "retweetrate"
-    #   console.log("rate", msg.rate)
-    #   $("#retweet_rate").html("<h4>" + msg.words.rate + "</h4>")
-    # else if name == "word_rankings"
-    #   list = $("<ul></ul>")
-    #   $.each msg.words, (k,v) ->
-    #     list.append("<li>" + k + " (" + v + ")</li>")
-    #   $("#top_words").html(list)
-    # else
-    #   console.log(name)
-
   source.addEventListener 'error', (e) ->
     console.error e
     if (e.readyState = EventSource.CLOSED)

@@ -8,3 +8,14 @@ body {
   #content {
   }
 }
+
+.bar rect {}
+
+.bar text {
+  font-size: .5em;
+}
+
+.axis path, .axis line {
+  stroke: black;
+  shape-rendering: crispEdges;
+}

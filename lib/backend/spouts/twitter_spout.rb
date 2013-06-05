@@ -26,16 +26,15 @@ module RigData
     end
 
     def new_topic(topic)
+      shutdown if @run_thread
       @mutex.synchronize do
-        shutdown
         @queue.clear
-        run!(topic)
       end
+      run!(topic)
     end
 
     def shutdown
-      @client.stop
-      @run_thread.exit
+      # @client.stop
       @run_thread.terminate
     end
 
@@ -72,9 +71,25 @@ module RigData
       @redis = Redis.new(RigData.config('redis'))
 
       @topic = @redis.get('rigdata.topic') || 'SF'
-      RigData.log "Running with #{@topic}"
+      
+      @queue.new_topic(@topic)
 
-      @queue.run!(@topic)
+      redisThread = Thread.new do
+        @redis.psubscribe('rigdata.topic') do |on|
+          on.psubscribe do |ch, subs|
+            RigData.log "New subscription to #{ch}"
+          end
+        
+          on.pmessage do |pattern, evt, message|
+            p [:message, message]
+            @topic = (JSON.parse(message) rescue message)["search"]
+            RigData.log "Running with #{@topic}"
+            @queue.new_topic(@topic)
+          end
+        end
+      end
+      
+      # @redis.publish 'rigdata.topic', @topic
     end
 
     # Is called when the Java spout `nextTuple` is called
